@@ -15,5 +15,37 @@
       "name": "Esme",
       "breed": "Pitbull"
     }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Steve Brownlee"
+    },
+    {
+      "id": 2,
+      "name": "Brenda Long"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Kennel North"
+    },
+    {
+      "id": 2,
+      "name": "Kennel South"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Charlie Day",
+      "phoneNumber": "615-555-5555"
+    },
+    {
+      "id": 2,
+      "name": "Missy Misdemeanor",
+      "phoneNumber": "615-333-3333"
+    }
   ]
 }
