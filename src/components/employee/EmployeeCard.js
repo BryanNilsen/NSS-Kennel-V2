@@ -5,7 +5,7 @@ class EmployeeCard extends Component {
     return (
       <div className="card">
         <div className="card-content">
-          <h3>Employee: </h3>
+          <h3>Employee: {this.props.employee.name}</h3>
           <p>Info</p>
         </div>
       </div>

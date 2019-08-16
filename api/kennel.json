@@ -15,5 +15,39 @@
       "name": "Esme",
       "breed": "Pitbull"
     }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Steve Brownlee"
+    },
+    {
+      "id": 2,
+      "name": "Brenda Long"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Kennel North",
+      "address": "500 Interstate Blvd."
+    },
+    {
+      "id": 2,
+      "name": "Kennel South",
+      "address": "301 Plus Park Blvd"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Charlie Day",
+      "phoneNumber": "615-555-5555"
+    },
+    {
+      "id": 2,
+      "name": "Missy Misdemeanor",
+      "phoneNumber": "615-333-3333"
+    }
   ]
 }
