@@ -29,11 +29,13 @@
   "locations": [
     {
       "id": 1,
-      "name": "Kennel North"
+      "name": "Kennel North",
+      "address": "500 Interstate Blvd."
     },
     {
       "id": 2,
-      "name": "Kennel South"
+      "name": "Kennel South",
+      "address": "301 Plus Park Blvd"
     }
   ],
   "owners": [

@@ -25,7 +25,9 @@ class EmployeeList extends Component {
 
     return (
       <div className="container-cards">
-        {this.state.employees.map(employee => <EmployeeCard />)}
+        {this.state.employees.map(employee =>
+          <EmployeeCard key={employee.id} employee={employee} />
+        )}
       </div>
     )
   }
