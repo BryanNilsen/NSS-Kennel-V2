@@ -36,11 +36,20 @@ class OwnerList extends Component {
     console.log("OWNER LIST: Render");
 
     return (
-      <div className="container-cards">
-        {this.state.owners.map(owner =>
-          <OwnerCard key={owner.id} owner={owner} deleteOwner={this.deleteOwner} />
-        )}
-      </div>
+      <>
+        <section className="section-content">
+          <button type="button"
+            className="btn"
+            onClick={() => { this.props.history.push("/owners/new") }}>
+            Add Owner
+        </button>
+        </section>
+        <div className="container-cards">
+          {this.state.owners.map(owner =>
+            <OwnerCard key={owner.id} owner={owner} deleteOwner={this.deleteOwner} />
+          )}
+        </div>
+      </>
     )
   }
 }

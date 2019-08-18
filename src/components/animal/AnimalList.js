@@ -37,11 +37,20 @@ class AnimalList extends Component {
     console.log("AnimalList: Render");
 
     return (
-      <div className="container-cards">
-        {this.state.animals.map(animal =>
-          <AnimalCard key={animal.id} animal={animal} deleteAnimal={this.deleteAnimal} />
-        )}
-      </div>
+      <>
+        <section className="section-content">
+          <button type="button"
+            className="btn"
+            onClick={() => { this.props.history.push("/animals/new") }}>
+            Admit Animal
+        </button>
+        </section>
+        <div className="container-cards">
+          {this.state.animals.map(animal =>
+            <AnimalCard key={animal.id} animal={animal} deleteAnimal={this.deleteAnimal} />
+          )}
+        </div>
+      </>
     )
   }
 }
