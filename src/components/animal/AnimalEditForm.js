@@ -7,6 +7,7 @@ class AnimalEditForm extends Component {
   state = {
     animalName: "",
     breed: "",
+    employeeId: "",
     loadingStatus: true,
   };
 
@@ -22,7 +23,8 @@ class AnimalEditForm extends Component {
     const editedAnimal = {
       id: this.props.match.params.animalId,
       name: this.state.animalName,
-      breed: this.state.breed
+      breed: this.state.breed,
+      employeeId: this.state.employeeId
     };
 
     AnimalManager.update(editedAnimal)
@@ -35,6 +37,7 @@ class AnimalEditForm extends Component {
         this.setState({
           animalName: animal.name,
           breed: animal.breed,
+          employeeId: animal.employeeId,
           loadingStatus: false,
         });
       });
