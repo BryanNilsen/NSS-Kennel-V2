@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import LocationManager from '../../modules/LocationManager';
-import './LocationDetail.css'
+import './LocationDetail.css';
 
 class LocationDetail extends Component {
 
@@ -8,6 +9,7 @@ class LocationDetail extends Component {
     name: "",
     address: "",
     loadingStatus: true,
+    redirect: false,
   }
 
   componentDidMount() {
@@ -15,11 +17,18 @@ class LocationDetail extends Component {
     //get(id) from LocationManager and hang on to the data; put it into state
     LocationManager.get(this.props.locationId)
       .then((location) => {
-        this.setState({
-          name: location.name,
-          address: location.address,
-          loadingStatus: false,
-        });
+        if (!location.id) {
+          this.setState({
+            redirect: true
+          })
+
+        } else {
+          this.setState({
+            name: location.name,
+            address: location.address,
+            loadingStatus: false,
+          });
+        }
       });
   }
 
@@ -29,16 +38,21 @@ class LocationDetail extends Component {
     LocationManager.delete(this.props.locationId)
       .then(() => this.props.history.push("/locations"))
   }
+
   render() {
-    return (
-      <div className="card">
-        <div className="card-content">
-          <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
-          <p>Address: {this.state.address}</p>
-          <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete Location</button>
+    if (this.state.redirect) {
+      return <Redirect to="/notfound" />
+    } else {
+      return (
+        <div className="card">
+          <div className="card-content">
+            <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
+            <p>Address: {this.state.address}</p>
+            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Delete Location</button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

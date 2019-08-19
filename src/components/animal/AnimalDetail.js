@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import AnimalManager from '../../modules/AnimalManager';
-import './AnimalDetail.css'
+import './AnimalDetail.css';
 
 class AnimalDetail extends Component {
 
@@ -8,6 +9,7 @@ class AnimalDetail extends Component {
     name: "",
     breed: "",
     loadingStatus: true,
+    redirect: false
   }
 
   componentDidMount() {
@@ -15,11 +17,17 @@ class AnimalDetail extends Component {
     //get(id) from AnimalManager and hang on to that data; put it into state
     AnimalManager.get(this.props.animalId)
       .then((animal) => {
-        this.setState({
-          name: animal.name,
-          breed: animal.breed,
-          loadingStatus: false
-        });
+        if (!animal.id) {
+          this.setState({
+            redirect: true
+          })
+        } else {
+          this.setState({
+            name: animal.name,
+            breed: animal.breed,
+            loadingStatus: false
+          });
+        }
       });
   }
 
@@ -31,18 +39,22 @@ class AnimalDetail extends Component {
   }
 
   render() {
-    return (
-      <div className="card">
-        <div className="card-content">
-          <picture>
-            <img src={require('./dog.svg')} alt="My Dog" />
-          </picture>
-          <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
-          <p>Breed: {this.state.breed}</p>
-          <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</button>
+    if (this.state.redirect) {
+      return <Redirect to="/notfound" />
+    } else {
+      return (
+        <div className="card">
+          <div className="card-content">
+            <picture>
+              <img src={require('./dog.svg')} alt="My Dog" />
+            </picture>
+            <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
+            <p>Breed: {this.state.breed}</p>
+            <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

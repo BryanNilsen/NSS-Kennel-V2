@@ -1,11 +1,11 @@
 import { Route, withRouter, Redirect } from "react-router-dom"
 import React, { Component } from 'react'
 import Login from './auth/Login'
+import NotFound from './NotFound/NotFound'
 import Home from './home/Home'
 import AnimalList from './animal/AnimalList'
 import AnimalDetail from './animal/AnimalDetail'
 import AnimalForm from './animal/AnimalForm'
-//only include these once they are built - previous practice exercise
 import LocationList from './location/LocationList'
 import LocationDetail from './location/LocationDetail'
 import LocationForm from './location/LocationForm'
@@ -27,6 +27,7 @@ class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <Route path="/login" component={Login} />
+        <Route path="/notfound" component={NotFound} />
         <Route exact path="/" render={(props) => {
           return <Home />
         }} />
