@@ -36,3 +36,7 @@ nav .container a {
 nav .container a:hover {
   color: maroon;
 }
+
+nav .active {
+  background: lime
+}
