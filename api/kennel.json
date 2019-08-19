@@ -3,28 +3,32 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle"
+      "breed": "Poodle",
+      "employeeId": 1
     },
     {
       "id": 2,
       "name": "Decker",
-      "breed": "German Sheperd"
+      "breed": "German Sheperd",
+      "employeeId": 2
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Poodle"
+      "breed": "Poodle",
+      "employeeId": 1
     },
     {
-      "name": "Chewbarka",
+      "id": 4,
+      "name": "Chewbarkaa",
       "breed": "Wookie",
-      "id": 4
+      "employeeId": 3
     }
   ],
   "employees": [
     {
       "id": 1,
-      "name": "Steve Brownlee"
+      "name": "Steve Brownleeeee"
     },
     {
       "id": 2,
