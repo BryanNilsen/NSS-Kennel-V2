@@ -24,58 +24,92 @@ class ApplicationViews extends Component {
 
 
   render() {
-    // universal condition if not authenticated - only display login route
-    if (!this.isAuthenticated()) {
-      return (
-        <Route exact path="/*" component={Login} />
-      )
-      // if authenticated, display all routes
-    } else {
-      return (
-        <React.Fragment>
-          <Route path="/login" component={Login} />
-          <Route path="/notfound" component={NotFound} />
-          <Route exact path="/" render={(props) => {
-            return <Home />
-          }} />
-          <Route exact path="/animals" render={props => {
+
+    return (
+      <React.Fragment>
+        <Route path="/login" component={Login} />
+        <Route path="/notfound" component={NotFound} />
+        <Route exact path="/home" render={(props) => {
+          return <Home />
+        }} />
+        <Route exact path="/animals" render={props => {
+          if (this.isAuthenticated()) {
             return <AnimalList {...props} />
-          }} />
-          <Route path="/animals/:animalId(\d+)" render={(props) => {
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+        <Route path="/animals/:animalId(\d+)" render={(props) => {
+          if (this.isAuthenticated()) {
             return <AnimalDetail animalId={parseInt(props.match.params.animalId)} {...props} />
-          }} />
-          <Route path="/animals/new" render={(props) => {
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+        <Route path="/animals/new" render={(props) => {
+          if (this.isAuthenticated()) {
             return <AnimalForm {...props} />
-          }} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
 
-          <Route exact path="/locations" render={(props) => {
+        <Route exact path="/locations" render={(props) => {
+          if (this.isAuthenticated()) {
             return <LocationList {...props} />
-          }} />
-          <Route path="/locations/new" render={(props) => {
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+
+        <Route path="/locations/new" render={(props) => {
+          if (this.isAuthenticated()) {
             return <LocationForm {...props} />
-          }} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
 
-          <Route path="/locations/:locationId(\d+)" render={(props) => {
-            // Pass the locationId to the LocationDetailComponent
+        <Route path="/locations/:locationId(\d+)" render={(props) => {
+          if (this.isAuthenticated()) {
             return <LocationDetail locationId={parseInt(props.match.params.locationId)} {...props} />
-          }} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
 
-          <Route exact path="/employees" render={(props) => {
+        <Route exact path="/employees" render={(props) => {
+          if (this.isAuthenticated()) {
             return <EmployeeList {...props} />
-          }} />
-          <Route path="/employees/new" render={(props) => {
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+        <Route path="/employees/new" render={(props) => {
+          if (this.isAuthenticated()) {
             return <EmployeeForm {...props} />
-          }} />
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
 
-          <Route exact path="/owners" render={(props) => {
+        <Route exact path="/owners" render={(props) => {
+          if (this.isAuthenticated()) {
             return <OwnerList {...props} />
-          }} />
-          <Route path="/owners/new" render={(props) => {
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+        <Route path="/owners/new" render={(props) => {
+          if (this.isAuthenticated()) {
             return <OwnerForm {...props} />
-          }} />
-        </React.Fragment>
-      )
-    }
+          } else {
+            return <Redirect to="/login" />
+          }
+        }} />
+      </React.Fragment>
+    )
+
   }
 }
 
