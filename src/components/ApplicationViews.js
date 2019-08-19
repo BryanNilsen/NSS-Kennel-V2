@@ -12,6 +12,7 @@ import LocationDetail from './location/LocationDetail'
 import LocationForm from './location/LocationForm'
 import EmployeeList from './employee/EmployeeList'
 import EmployeeForm from './employee/EmployeeForm'
+import EmployeeEditForm from './employee/EmployeeEditForm'
 import OwnerList from './owner/OwnerList'
 import OwnerForm from './owner/OwnerForm'
 
@@ -110,8 +111,11 @@ class ApplicationViews extends Component {
             return <EmployeeForm {...props} />
           }
           return <Redirect to="/login" />
-        }
-        } />
+        }} />
+        <Route path="/employees/:employeeId(\d+)/edit" render={props => {
+          return <EmployeeEditForm {...props} />
+        }}
+        />
 
         <Route exact path="/owners" render={(props) => {
           if (this.isAuthenticated()) {
