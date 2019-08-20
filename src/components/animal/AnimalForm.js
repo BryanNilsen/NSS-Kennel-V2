@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import AnimalManager from '../../modules/AnimalManager';
+import APIManager from '../../modules/APIManager';
 import './AnimalForm.css'
 
 class AnimalForm extends Component {
   state = {
     animalName: "",
     breed: "",
+    employeeId: null,
     loadingStatus: false,
+    employees: []
   };
+
+  componentDidMount() {
+    APIManager.getAll("employees")
+      .then(employees => this.setState({ employees }))
+  }
 
   handleFieldChange = evt => {
     const stateToChange = {};
@@ -15,7 +22,7 @@ class AnimalForm extends Component {
     this.setState(stateToChange);
   };
 
-  /*  Local method for validation, set loadingStatus, create animal      object, invoke the AnimalManager post method, and redirect to the full animal list
+  /*  Local method for validation, set loadingStatus, create animal      object, invoke the APIManager post method, and redirect to the full animal list
   */
   constructNewAnimal = evt => {
     evt.preventDefault();
@@ -26,10 +33,11 @@ class AnimalForm extends Component {
       const animal = {
         name: this.state.animalName,
         breed: this.state.breed,
+        employeeId: parseInt(this.state.employeeId)
       };
 
       // Create the animal and redirect user to animal list
-      AnimalManager.post(animal)
+      APIManager.post("animals", animal)
         .then(() => this.props.history.push("/animals"));
     }
   };
@@ -41,6 +49,7 @@ class AnimalForm extends Component {
         <form>
           <fieldset>
             <div className="formgrid">
+              <label htmlFor="animalName">Name</label>
               <input
                 type="text"
                 required
@@ -48,7 +57,8 @@ class AnimalForm extends Component {
                 id="animalName"
                 placeholder="Animal name"
               />
-              <label htmlFor="animalName">Name</label>
+
+              <label htmlFor="breed">Breed</label>
               <input
                 type="text"
                 required
@@ -56,7 +66,15 @@ class AnimalForm extends Component {
                 id="breed"
                 placeholder="Breed"
               />
-              <label htmlFor="breed">Breed</label>
+
+              <label htmlFor="employee">Employee</label>
+              <select
+                name="employee"
+                onChange={this.handleFieldChange}
+                id="employeeId"
+              >
+                {this.state.employees.map(employee => <option value={employee.id}>{employee.name}</option>)}
+              </select>
             </div>
             <div className="alignRight">
               <button

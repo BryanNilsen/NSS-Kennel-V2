@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle",
+      "breed": "Poodles",
       "employeeId": 1
     },
     {
@@ -29,6 +29,17 @@
       "name": "Mr. Furley",
       "breed": "Boxer",
       "employeeId": 4
+    },
+    {
+      "name": "Sparky",
+      "breed": "Terrier",
+      "id": 6
+    },
+    {
+      "name": "Test Mutt",
+      "breed": "Pekingese",
+      "employeeId": 3,
+      "id": 7
     }
   ],
   "employees": [
