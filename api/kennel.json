@@ -14,29 +14,48 @@
     },
     {
       "id": 3,
-      "name": "Esme",
-      "breed": "Poodle",
-      "employeeId": 1
+      "name": "Checkers",
+      "breed": "Rottie",
+      "employeeId": 3
     },
     {
       "id": 4,
-      "name": "Chewbarkaa",
-      "breed": "Wookie",
-      "employeeId": 3
+      "name": "Spot",
+      "breed": "Mutt",
+      "employeeId": 1
+    },
+    {
+      "id": 5,
+      "name": "Mr. Furley",
+      "breed": "Boxer",
+      "employeeId": 4
     }
   ],
   "employees": [
     {
       "id": 1,
-      "name": "Steve Brownleeeee"
+      "name": "Steve Brownlee",
+      "locationId": 1
     },
     {
       "id": 2,
-      "name": "Brenda Long"
+      "name": "Brenda Long",
+      "locationId": 1
     },
     {
-      "name": "Madi Pepper",
-      "id": 3
+      "id": 3,
+      "name": "Bryan Nilsen",
+      "locationId": 2
+    },
+    {
+      "id": 4,
+      "name": "Andy Collins",
+      "locationId": 2
+    },
+    {
+      "id": 5,
+      "name": "Jenna Solis",
+      "locationId": 1
     }
   ],
   "locations": [
@@ -49,6 +68,11 @@
       "id": 2,
       "name": "Kennel South",
       "address": "301 Plus Park Blvd"
+    },
+    {
+      "id": 3,
+      "name": "NSS Headquarters",
+      "address": "123 Smart People Place"
     }
   ],
   "owners": [

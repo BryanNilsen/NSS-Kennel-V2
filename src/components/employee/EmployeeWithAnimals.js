@@ -19,17 +19,20 @@ class EmployeeWithAnimals extends Component {
       })
   }
 
+
   render() {
     return (
       <div className="card">
         <p>Employee: {this.state.employee.name}</p>
-        {this.state.animals.map(animal =>
-          <AnimalCard
-            key={animal.id}
-            animal={animal}
-            {...this.props}
-          />
-        )}
+        <div className="container-cards">
+          {this.state.animals.map(animal =>
+            <AnimalCard
+              key={animal.id}
+              animal={animal}
+              {...this.props}
+            />
+          )}
+        </div>
       </div>
     )
   }

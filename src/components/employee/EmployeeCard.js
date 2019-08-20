@@ -5,13 +5,17 @@ class EmployeeCard extends Component {
     return (
       <div className="card">
         <div className="card-content">
-          <h3>Employee: {this.props.employee.name}</h3>
-          <p>Info</p>
-          <button type="button" onClick={() => this.props.deleteEmployee(this.props.employee.id)}>Discharge</button>
-          <button type="button"
-            onClick={() => { this.props.history.push(`/employees/${this.props.employee.id}/edit`) }}>Edit</button>
-          <button type="button"
-            onClick={() => { this.props.history.push(`/employees/${this.props.employee.id}/details`) }}>Details</button>
+          <h3>{this.props.employee.name}</h3>
+          {this.props.deleteEmployee
+            ? <>
+              <button type="button" onClick={() => this.props.deleteEmployee(this.props.employee.id)}>Discharge</button>
+              <button type="button"
+                onClick={() => { this.props.history.push(`/employees/${this.props.employee.id}/edit`) }}>Edit</button>
+              <button type="button"
+                onClick={() => { this.props.history.push(`/employees/${this.props.employee.id}/details`) }}>Details</button>
+            </>
+            : null
+          }
         </div>
       </div>
     );
