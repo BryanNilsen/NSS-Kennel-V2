@@ -67,6 +67,11 @@
       "id": 5,
       "name": "Jenna Solis",
       "locationId": 1
+    },
+    {
+      "name": "Kristen Norris",
+      "locationId": 2,
+      "id": 6
     }
   ],
   "locations": [
