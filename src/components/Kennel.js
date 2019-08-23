@@ -7,12 +7,19 @@ import "./Kennel.css"
 
 class Kennel extends Component {
   state = {
-    results: {}
+    results: {
+      animals: [],
+      employees: [],
+      locations: [],
+      owners: [],
+      keyword: ""
+    }
   }
 
   getSearchResults = (keyword) => {
     APIManager.search(keyword)
       .then(results => {
+        results.keyword = keyword
         this.setState({ results })
       })
   }

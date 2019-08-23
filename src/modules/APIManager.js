@@ -3,16 +3,26 @@ const remoteURL = "http://localhost:5002"
 export default {
   search(keyword) {
     let allSearchResults = {}
-    return fetch(`${remoteURL}/animals?q=${keyword}`)
+    return fetch(`${remoteURL}/animals?name_like=${keyword}`)
       .then(result => result.json())
       .then(animalsArray => {
         allSearchResults.animals = animalsArray
         // return allSearchResults
       })
-      .then(() => fetch(`${remoteURL}/employees?q=${keyword}`))
+      .then(() => fetch(`${remoteURL}/employees?name_like=${keyword}`))
       .then(result => result.json())
       .then(employeesArray => {
         allSearchResults.employees = employeesArray
+      })
+      .then(() => fetch(`${remoteURL}/locations?name_like=${keyword}`))
+      .then(result => result.json())
+      .then(locationsArray => {
+        allSearchResults.locations = locationsArray
+      })
+      .then(() => fetch(`${remoteURL}/owners?name_like=${keyword}`))
+      .then(result => result.json())
+      .then(ownersArray => {
+        allSearchResults.owners = ownersArray
         return allSearchResults
       })
   },
