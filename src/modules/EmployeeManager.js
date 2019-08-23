@@ -8,7 +8,7 @@ export default {
     return fetch(`${remoteURL}/employees`).then(result => result.json())
   },
   getWithAnimals(id) {
-    return fetch(`${remoteURL}/employees/${id}?_embed=animals`)
+    return fetch(`${remoteURL}/employees/${id}?_embed=animals&_embed=locations`)
       .then(result => result.json())
   },
   delete(id) {

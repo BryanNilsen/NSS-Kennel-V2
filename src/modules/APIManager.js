@@ -1,6 +1,21 @@
 const remoteURL = "http://localhost:5002"
 
 export default {
+  search(keyword) {
+    let allSearchResults = {}
+    return fetch(`${remoteURL}/animals?q=${keyword}`)
+      .then(result => result.json())
+      .then(animalsArray => {
+        allSearchResults.animals = animalsArray
+        // return allSearchResults
+      })
+      .then(() => fetch(`${remoteURL}/employees?q=${keyword}`))
+      .then(result => result.json())
+      .then(employeesArray => {
+        allSearchResults.employees = employeesArray
+        return allSearchResults
+      })
+  },
   get(resource, id) {
     return fetch(`${remoteURL}/${resource}/${id}`).then(result => result.json())
   },

@@ -56,7 +56,7 @@
     {
       "id": 3,
       "name": "Bryan Nilsen",
-      "locationId": 2
+      "locationId": 3
     },
     {
       "id": 4,
@@ -72,6 +72,11 @@
       "name": "Kristen Norris",
       "locationId": 2,
       "id": 6
+    },
+    {
+      "name": "John Wark",
+      "locationId": 3,
+      "id": 7
     }
   ],
   "locations": [

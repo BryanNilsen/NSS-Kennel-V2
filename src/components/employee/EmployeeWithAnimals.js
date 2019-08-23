@@ -15,6 +15,7 @@ class EmployeeWithAnimals extends Component {
         this.setState({
           employee: APIResult,
           animals: APIResult.animals,
+          locations: APIResult.locations
         })
       })
   }

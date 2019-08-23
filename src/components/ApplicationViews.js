@@ -1,6 +1,7 @@
 import { Route, withRouter, Redirect, Switch } from "react-router-dom"
 import React, { Component } from 'react'
 import Login from './auth/Login'
+import SearchResults from './search/SearchResults'
 import NotFound from './NotFound/NotFound'
 import Home from './home/Home'
 import AnimalList from './animal/AnimalList'
@@ -49,6 +50,9 @@ class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <Route path="/login" component={Login} />
+        <Route path="/search" render={(props) => {
+          return <SearchResults results={this.props.results} />
+        }} />
         <Route path="/notfound" component={NotFound} />
         <Route exact path="/home" render={(props) => {
           return <Home />
