@@ -52,6 +52,7 @@ fieldset .formgrid {
 }
 
 fieldset input,
+select,
 fieldset button {
   grid-column: 2 /4;
   width: auto;

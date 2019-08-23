@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import AnimalManager from '../../modules/AnimalManager';
-import './AnimalDetail.css';
 
 class AnimalDetail extends Component {
 

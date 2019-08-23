@@ -15,21 +15,25 @@ class EmployeeWithAnimals extends Component {
         this.setState({
           employee: APIResult,
           animals: APIResult.animals,
+          locations: APIResult.locations
         })
       })
   }
+
 
   render() {
     return (
       <div className="card">
         <p>Employee: {this.state.employee.name}</p>
-        {this.state.animals.map(animal =>
-          <AnimalCard
-            key={animal.id}
-            animal={animal}
-            {...this.props}
-          />
-        )}
+        <div className="container-cards">
+          {this.state.animals.map(animal =>
+            <AnimalCard
+              key={animal.id}
+              animal={animal}
+              {...this.props}
+            />
+          )}
+        </div>
       </div>
     )
   }

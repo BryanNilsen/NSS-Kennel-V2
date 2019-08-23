@@ -1,10 +1,12 @@
 import React, { Component } from "react"
-import EmployeeManager from "../../modules/EmployeeManager"
+import APIManager from "../../modules/APIManager";
 
 class EmployeeEditForm extends Component {
   //set the intial state
   state = {
     employeeName: "",
+    locationId: "",
+    locations: [],
     loadingStatus: true,
   };
 
@@ -20,25 +22,30 @@ class EmployeeEditForm extends Component {
     const editedEmployee = {
       id: this.props.match.params.employeeId,
       name: this.state.employeeName,
+      locationId: parseInt(this.state.locationId)
     };
 
-    EmployeeManager.update(editedEmployee)
+    APIManager.update("employees", editedEmployee)
       .then(() => this.props.history.push("/employees"))
   }
 
   componentDidMount() {
-    EmployeeManager.get(this.props.match.params.employeeId)
+    APIManager.get("employees", this.props.match.params.employeeId)
       .then(employee => {
         this.setState({
           employeeName: employee.name,
+          locationId: employee.locationId,
           loadingStatus: false,
         });
       });
+    APIManager.getAll("locations")
+      .then(locations => this.setState({ locations }))
   }
 
   render() {
     return (
       <>
+        <h1>Edit Employee</h1>
         <form>
           <fieldset>
             <div className="formgrid">
@@ -51,6 +58,19 @@ class EmployeeEditForm extends Component {
                 value={this.state.employeeName}
               />
               <label htmlFor="employeeName">Employee Name</label>
+
+              <select
+                name="Location"
+                onChange={this.handleFieldChange}
+                id="locationId"
+                value={this.state.locationId}
+              >
+                {this.state.locations.map(location =>
+                  <option key={location.id} value={location.id}> {location.name}</option>
+                )}
+
+              </select>
+              <label htmlFor="Location">Location</label>
 
             </div>
             <div className="alignRight">

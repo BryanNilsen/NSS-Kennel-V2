@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Doodles",
-      "breed": "Poodle",
+      "breed": "Poodles",
       "employeeId": 1
     },
     {
@@ -14,29 +14,75 @@
     },
     {
       "id": 3,
-      "name": "Esme",
-      "breed": "Poodle",
-      "employeeId": 1
+      "name": "Checkers",
+      "breed": "Rottie",
+      "employeeId": 3
     },
     {
       "id": 4,
-      "name": "Chewbarkaa",
-      "breed": "Wookie",
-      "employeeId": 3
+      "name": "Spot",
+      "breed": "Mutt",
+      "employeeId": 1
+    },
+    {
+      "id": 5,
+      "name": "Mr. Furley",
+      "breed": "Boxer",
+      "employeeId": 4
+    },
+    {
+      "name": "Sparky",
+      "breed": "Terrier",
+      "id": 6
+    },
+    {
+      "name": "Test Mutt",
+      "breed": "Pekingese",
+      "employeeId": 3,
+      "id": 7
+    },
+    {
+      "name": "Zip",
+      "breed": "Husky",
+      "employeeId": 6,
+      "id": 8
     }
   ],
   "employees": [
     {
       "id": 1,
-      "name": "Steve Brownleeeee"
+      "name": "Steve Brownlee",
+      "locationId": 1
     },
     {
       "id": 2,
-      "name": "Brenda Long"
+      "name": "Brenda Long",
+      "locationId": 1
     },
     {
-      "name": "Madi Pepper",
-      "id": 3
+      "id": 3,
+      "name": "Bryan Nilsen",
+      "locationId": 3
+    },
+    {
+      "id": 4,
+      "name": "Andy Collins",
+      "locationId": 2
+    },
+    {
+      "id": 5,
+      "name": "Jenna Solis",
+      "locationId": 1
+    },
+    {
+      "name": "Kristen Norris",
+      "locationId": 2,
+      "id": 6
+    },
+    {
+      "name": "John Wark",
+      "locationId": 3,
+      "id": 7
     }
   ],
   "locations": [
@@ -49,6 +95,11 @@
       "id": 2,
       "name": "Kennel South",
       "address": "301 Plus Park Blvd"
+    },
+    {
+      "id": 3,
+      "name": "NSS Headquarters",
+      "address": "123 Smart People Place"
     }
   ],
   "owners": [
