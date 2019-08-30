@@ -25,6 +25,7 @@ class EmployeeWithAnimals extends Component {
     return (
       <div className="card">
         <p>Employee: {this.state.employee.name}</p>
+        <p>Animals Cared For:</p>
         <div className="container-cards">
           {this.state.animals.map(animal =>
             <AnimalCard

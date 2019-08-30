@@ -8,8 +8,8 @@
     },
     {
       "id": 2,
-      "name": "Decker",
-      "breed": "German Sheperd",
+      "name": "Deckerz",
+      "breed": "German Shepherd",
       "employeeId": 2
     },
     {
@@ -36,16 +36,28 @@
       "id": 6
     },
     {
-      "name": "Test Mutt",
+      "id": 7,
+      "name": "Fletch",
       "breed": "Pekingese",
-      "employeeId": 3,
-      "id": 7
+      "employeeId": 3
     },
     {
       "name": "Zip",
       "breed": "Husky",
       "employeeId": 6,
       "id": 8
+    },
+    {
+      "name": "Beep",
+      "breed": "Boop",
+      "employeeId": 1,
+      "id": 9
+    },
+    {
+      "name": "Anthony",
+      "breed": "Terrier",
+      "employeeId": 1,
+      "id": 10
     }
   ],
   "employees": [
