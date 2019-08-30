@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 class AnimalCard extends Component {
   render() {
     return (
+
       <div className="card">
         <div className="card-content">
           <picture>

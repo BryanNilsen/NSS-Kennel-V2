@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import AnimalManager from "../../modules/AnimalManager"
+import EmployeeManager from "../../modules/EmployeeManager"
 import "./AnimalForm.css"
 
 class AnimalEditForm extends Component {
@@ -9,6 +10,7 @@ class AnimalEditForm extends Component {
     breed: "",
     employeeId: "",
     loadingStatus: true,
+    employees: []
   };
 
   handleFieldChange = evt => {
@@ -32,15 +34,18 @@ class AnimalEditForm extends Component {
   }
 
   componentDidMount() {
-    AnimalManager.get(this.props.match.params.animalId)
-      .then(animal => {
-        this.setState({
-          animalName: animal.name,
-          breed: animal.breed,
-          employeeId: animal.employeeId,
-          loadingStatus: false,
-        });
-      });
+    EmployeeManager.getAll()
+      .then(employees => AnimalManager.get(this.props.match.params.animalId)
+        .then(animal => {
+          this.setState({
+            animalName: animal.name,
+            breed: animal.breed,
+            employeeId: animal.employeeId,
+            loadingStatus: false,
+            employees: employees
+          });
+        })
+      )
   }
 
   render() {

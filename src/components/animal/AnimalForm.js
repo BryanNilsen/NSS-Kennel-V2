@@ -73,6 +73,7 @@ class AnimalForm extends Component {
                 onChange={this.handleFieldChange}
                 id="employeeId"
               >
+                <option key="employeeselect" selected>Select Employee</option>
                 {this.state.employees.map(employee => <option key={employee.id} value={employee.id}>{employee.name}</option>)}
               </select>
             </div>

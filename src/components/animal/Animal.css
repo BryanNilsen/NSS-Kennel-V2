@@ -5,8 +5,11 @@
   border-radius: 5px;
   /* 5px rounded corners */
   background: aliceblue;
+  margin: auto;
+  margin-top: 2em;
   margin-bottom: 2em;
   flex: 0 1 24%;
+  max-width: 400px;
 
 }
 
@@ -46,4 +49,8 @@
 
 .card button:hover {
   background-color: darkblue;
+}
+
+.card button:disabled {
+  background-color: deeppink
 }
